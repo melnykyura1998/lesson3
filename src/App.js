@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Carss from "./components/cars/carss";
+import CarForm from "./components/carForm/carForm";
+import {useState} from "react";
 
 function App() {
+    const[newCar,setNewCar] = useState(null)
+    const[idByUpdate,setIdByUpdate]=useState(null)
+    const[updatedCar,setUpdatedCar]=useState(null)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <CarForm setNewCar={setNewCar} carByUpdate={idByUpdate} setUpdatedCar={setUpdatedCar} setCarByUpdate={setIdByUpdate}/>
+        <div className={'carss'} >
+            <Carss newCar={newCar} setIdByUpdate={setIdByUpdate} updatedCar={updatedCar} />
+        </div>
     </div>
   );
 }
